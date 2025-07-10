@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mohan Prasad | QA Engineer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohan Prasad - SDET</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
     body {
       font-family: 'Montserrat', 'Segoe UI', sans-serif;
       margin: 0; padding: 0; background: #f0f4fa;
@@ -48,6 +52,10 @@
     .role { color: #4660a0; margin-bottom: 6px;}
     .contact-btns {
       margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
     }
     .contact-btn {
       display: inline-block;
@@ -68,7 +76,6 @@
       box-shadow: 0 2px 10px #c7d2fe55;
     }
     .download-btn {
-      margin-top: 10px;
       background: #4660a0;
       color: #fff;
       border: none;
@@ -79,6 +86,7 @@
       cursor: pointer;
       box-shadow: 0 2px 10px #c7d2fe44;
       transition: background 0.2s;
+      margin-top: 0;
     }
     .download-btn:hover {
       background: #223265;
@@ -96,6 +104,21 @@
       transition: background 0.2s, transform 0.2s;
       cursor: pointer;
       box-shadow: 0 1px 4px rgba(80,110,255,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      font-size: 1rem;
+      border-radius: 16px;
+      margin: 3px 7px 3px 0;
+    }
+    .icon-badge {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+    }
+    .badge i, .badge svg {
+      font-size: 1.1em;
     }
     .badge:hover {
       background: #4660a0;
@@ -104,6 +127,11 @@
     }
     .timeline { margin: 0; padding: 0; list-style: none; }
     .timeline li { margin-bottom: 22px; }
+    /* Indentation for nested lists */
+    .timeline ul {
+      margin-left: 32px;
+      margin-top: 8px;
+    }
     @media (max-width:600px) {
       .container { padding: 8px;}
       .hero { flex-direction: column; padding: 18px 10px;}
@@ -112,82 +140,107 @@
     }
   </style>
 </head>
-<body>
-  <div class="container">
+<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+  <header style="position: sticky; top: 0; background: #ffffffee; box-shadow: 0 2px 12px #c7d2fe33; z-index: 1000; padding: 14px 0;">
+    <nav style="display: flex; gap: 28px; justify-content: center; font-weight: 600; font-size: 1.08em;">
+      <a href="#about" style="color: #4660a0; text-decoration: none;">About</a>
+      <a href="#experience" style="color: #4660a0; text-decoration: none;">Experience</a>
+      <a href="#skills" style="color: #4660a0; text-decoration: none;">Skills</a>
+      <a href="#projects" style="color: #4660a0; text-decoration: none;">Projects</a>
+      <a href="#education" style="color: #4660a0; text-decoration: none;">Education</a>
+    </nav>
+  </header>
+  <div class="container" style="box-shadow: 0 8px 32px #4660a052;">
     <div class="hero">
       <div class="hero-info">
         <div class="name">Mohan Prasad</div>
-        <div class="role">Software Test Engineer (QA Automation)</div>
+        <div class="role">SDET (Software Development Engineer in Test)</div>
+        <div class="location" style="font-size: 0.9em; color: #666; margin-top: 5px;">📍 Mumbai, India | 📞 <a href="tel:+917506760865" style="color: #4660a0; text-decoration: none; font-weight: 600;">7506760865</a></div>
         <div class="contact-btns">
-          <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com">Email</a>
-          <a class="contact-btn" href="https://www.linkedin.com/in/mohanprasadqa/" target="_blank">LinkedIn</a>
-          <!-- Add your GitHub link below if desired -->
-          <a class="contact-btn" href="https://github.com/mohan949" target="_blank">GitHub</a>
+          <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>Email</a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/mohanprasadqa/" target="_blank"><i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn</a>
+          <a class="contact-btn" href="https://github.com/mohan949" target="_blank"><i class="fab fa-github" style="margin-right: 8px;"></i>GitHub</a>
+          <button class="download-btn" onclick="window.open('https://flowcv.com/resume/fk4b33hi1j')"><i class="fas fa-download" style="margin-right: 8px;"></i>Download Resume</button>
         </div>
-        <button class="download-btn" onclick="window.open('https://flowcv.com/resume/fk4b33hi1j')">Download Resume</button>
       </div>
-      <!-- If you want to add your photo, upload it and replace 'profile.jpg' below -->
       <img src="https://ui-avatars.com/api/?name=Mohan+Prasad&background=4660a0&color=fff&size=128" class="profile-pic" alt="Profile Photo">
     </div>
-    <div class="section">
-      <h2>About</h2>
+    <div class="section" id="about">
+      <h2 style="display: flex; align-items: center;"><i class="fas fa-user-circle" style="margin-right: 10px;color: #4660a0;"></i>About</h2>
       <p>
-        Software Test Engineer with 3+ years of experience in automation and functional testing across e-commerce, pharmaceuticals, and blockchain. Passionate about building scalable QA automation frameworks, reducing onboarding time, and collaborating with global teams to deliver quality products.
+        SDET with 3+ years of experience in automation and functional testing across e-commerce, pharmaceuticals, and blockchain. Passionate about building scalable QA automation frameworks, reducing onboarding time, and collaborating with global teams to deliver quality products.
       </p>
     </div>
-    <div class="section">
-      <h2>Experience</h2>
+    <div class="section" id="experience">
+      <h2 style="display: flex; align-items: center;"><i class="fas fa-briefcase" style="margin-right: 10px;color: #4660a0;"></i>Experience</h2>
       <ul class="timeline">
         <li>
           <b>SDET-1, Fynd - JIO, Mumbai</b> <span style="float:right">Feb 2023 – Present</span>
           <ul>
-            <li>QA DRI for Commerce India/Global team: Led client onboarding testing, conducted functional & automation testing, and built frameworks for efficient test execution.</li>
-            <li>Implemented end-to-end testing, automated reporting, and collaborated with cross-functional teams.</li>
-            <li>Managed release sign-off and integrated tools like Playwright, Appium, and BrowserStack.</li>
+            <li><b>QA DRI Commerce India/Global team:</b> Conducted extensive functional and automation testing, designed robust automation frameworks using Python Pytest and Playwright, significantly reducing client onboarding time by improving test efficiency.</li>
+            <li><b>QA SME Mobile Apps (15M+ downloads):</b> Led testing for Android/iOS apps including Gofynd, Uniket, Myjio, Fynd Store, and Sephora with BrowserStack Integration. Skills: Appium, Functional Testing.</li>
+            <li><b>Themes SME:</b> Fynd Platform - Application, Website & Omnichannel Network testing for Gofynd, Uniket, Fynd Store themes. Automated respective websites with Azure CI/CD pipelines integration. Skills: Playwright TypeScript, Appium, Functional Testing.</li>
+            <li><b>JioMart:</b> E-commerce backend testing of Order Management System (OMS), Microservices, API, Database, Order fulfillment, Refunds, Onboarding new delivery partners, and communications. Skills: Python, MySQL, MongoDB, Kafka.</li>
+            <ul>
+              <li><b>End-to-End Testing Management:</b> Led comprehensive testing processes, including defining test scopes, developing detailed test plans, managing execution, reporting metrics, and overseeing defect lifecycle to enhance QA automation efficiency.</li>
+              <li><b>QA Best Practices Implementation:</b> Established and standardized robust QA methodologies for system-wide use, including pre- and post-deployment regression/sanity testing and final release sign-off procedures.</li>
+              <li><b>Automation of Reporting Processes:</b> Automated daily testing result reporting utilizing JavaScript-Playwright, integrated seamlessly with Slack and ReportPortal, significantly improving reporting accuracy and team visibility.</li>
+              <li><b>Cross-functional Collaboration:</b> Actively participated in post-demo discussions, providing critical testing insights and actionable recommendations to drive informed decisions and continuous improvement.</li>
+              <li><b>Effective Stakeholder Communication:</b> Regularly contributed to daily status calls, generated detailed progress reports, and closely aligned QA activities with broader management objectives.</li>
+              <li><b>Comprehensive Testing Expertise:</b> Demonstrated extensive experience in functional, integration, and regression testing, including robust skills in test case design, execution, and defect management.</li>
+              <li><b>Proficiency with QA Tools and Integration:</b> Expert in integrating tools like BrowserStack and Appium into functional testing workflows, managed automated regression testing, and oversaw version releases on Google Play and App Store.</li>
+              <li><b>Adaptability to Diverse SDLC Models:</b> Successfully tested and delivered quality products across Agile and Waterfall development environments, showcasing adaptability and versatile project management skills.</li>
+            </ul>
           </ul>
         </li>
         <li>
-          <b>Software Test Engineer, I2e Consulting, Mumbai</b> <span style="float:right">Aug 2021 – Feb 2023</span>
-          <ul>
-            <li>Led testing for healthcare and blockchain products (Pfizer, BBT NFT), ensuring compliance and security.</li>
-            <li>Developed and executed manual & automated test cases using Selenium, Java, and Python.</li>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            <span style="font-weight:bold; font-size:1.08em;">Software Test Engineer</span>
+            <span style="font-size: 0.98em; color:#444;">2021/08 – 2023/02<br>Mumbai</span>
+          </div>
+          <div style="font-style: italic; margin-bottom: 2px; color:#555;">I2e Consulting &nbsp; <span style="font-size:0.97em; color:#888;">- 5 month Intern + 1.3 Full time</span></div>
+          <ul style="margin-top: 2px;">
+            <li><b>Led functional and automated testing</b> of web and mobile applications in healthcare and blockchain, ensuring compliance for clients like Pfizer.</li>
+            <li><b>Pfizer Medicine Research Tool:</b> Conducted manual and automated web testing using <b>Selenium Java</b>, creating test scenarios, executing regression tests, and maintaining test cases for reliability.</li>
+            <li><b>BBT NFT (Blockchain &amp; E-Commerce):</b> Managed end-to-end testing, including blockchain integration with Ethereum and smart contract testing, ensuring secure transaction workflows.</li>
+            <li><b>TeleMedRX (Doctor Consultation Platform):</b> Built automation using <b>Selenium Java</b> for consultation workflows, boosting test efficiency.</li>
+            <li><b>Collaboration and Communication:</b> Worked with developers, business analysts, and stakeholders on testing objectives, contributing to Agile sprint reviews.</li>
+            <li><b>Testing Documentation:</b> Created and maintained test plans, cases, and bug reports to support Agile alignment and team clarity.</li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="section">
-      <h2>Skills</h2>
+    <div class="section" id="skills">
+      <h2 style="display: flex; align-items: center;"><i class="fas fa-tasks" style="margin-right: 10px;color: #4660a0;"></i>Skills</h2>
       <div class="skills">
-        <span class="badge">Playwright</span>
-        <span class="badge">Selenium</span>
-        <span class="badge">Appium</span>
-        <span class="badge">Postman</span>
-        <span class="badge">Python</span>
-        <span class="badge">Java</span>
-        <span class="badge">JavaScript</span>
-        <span class="badge">TypeScript</span>
-        <span class="badge">API Testing</span>
-        <span class="badge">CI/CD</span>
-        <span class="badge">BrowserStack</span>
-        <span class="badge">SQL</span>
+        <span class="badge" style="background: #e8f0fe;"><i class="fab fa-python" style="color: #3572A5;"></i> Python</span>
+        <span class="badge" style="background: #fff3e3;"><i class="fab fa-java" style="color: #b07219;"></i> Java</span>
+        <span class="badge" style="background: #f0db4f; color:#222;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="icon-badge"> JavaScript</span>
+        <span class="badge" style="background:#3178c6; color:#fff;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" class="icon-badge"> TypeScript</span>
+        <span class="badge" style="background: #e5f9ea;"><i class="fas fa-robot" style="color: #00b894;"></i> Selenium</span>
+        <span class="badge" style="background: #f0f4fa;"><i class="fas fa-theater-masks"></i> Playwright</span>
+        <span class="badge" style="background: #fff3e3;"><i class="fas fa-mobile-alt"></i> Appium</span>
+        <span class="badge" style="background: #e8f0fe;"><i class="fas fa-paper-plane"></i> Postman</span>
+        <span class="badge" style="background: #e5f9ea;"><i class="fas fa-plug"></i> API Testing</span>
+        <span class="badge" style="background: #f0f4fa;"><i class="fas fa-infinity"></i> CI/CD</span>
+        <span class="badge" style="background: #fff3e3;"><i class="fas fa-window-maximize"></i> BrowserStack</span>
+        <span class="badge" style="background: #e8f0fe;"><i class="fas fa-database"></i> SQL</span>
       </div>
     </div>
     <div class="section">
-      <h2>Projects</h2>
-      <div class="projects">
-        <div>
-          <b>AI Web Automation Suite</b> – Built scalable test automation using Playwright and Python.<br>
-          <b>Pfizer Medicine Research Tool</b> – End-to-end testing with Selenium and Java.<br>
+      <h2 style="display: flex; align-items: center;"><i class="fas fa-lightbulb" style="margin-right: 10px;color: #4660a0;"></i>Projects</h2>
+      <div class="projects" style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 290px; background: #f6fafd; padding: 20px 20px 18px 20px; border-radius: 14px; box-shadow:0 2px 10px #4660a012;transition: box-shadow 0.2s;">
+          <b>AI Web Automation Suite</b><br>Built scalable test automation using Playwright and Python.
+        </div>
+        <div style="flex: 1 1 290px; background: #fff9f0; padding: 20px 20px 18px 20px; border-radius: 14px; box-shadow:0 2px 10px #ffbb0010;transition: box-shadow 0.2s;">
+          <b>Pfizer Medicine Research Tool</b><br>End-to-end testing with Selenium and Java.
         </div>
       </div>
     </div>
-    <div class="section">
+    <div class="section" id="education">
       <h2>Education & Certificates</h2>
       <div>
         <b>B.E./B.Tech in Computer Science</b>, Don Bosco Institute of Technology, Mumbai University<br>
-        <b>Certifications:</b> CSS, JavaScript (Coursera), Web/Mobile/API Automation
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+        <b>Certifications:</b> CSS, JavaScript (CourYour **full HTML code** above is ready to use.  
+
