@@ -157,6 +157,32 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
     
+    // Animate GitHub stat cards
+    document.querySelectorAll('.stat-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        observer.observe(card);
+    });
+    
+    // Update observer to handle stat cards
+    const enhancedObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('stat-card')) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transition = 'all 0.6s ease';
+                    }, Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100);
+                }
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.stat-card').forEach(card => {
+        enhancedObserver.observe(card);
+    });
+    
     // Animate star ratings when in view
     const starObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
