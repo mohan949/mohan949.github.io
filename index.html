@@ -5,223 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohan Prasad - SDET</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;
-    }
-    body {
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      margin: 0; padding: 0; background: #f0f4fa;
-      animation: fadein 1s;
-    }
-    @keyframes fadein {
-      from { opacity: 0;}
-      to { opacity: 1;}
-    }
-    .container {
-      max-width: 850px;
-      margin: 40px auto 0 auto;
-      background: #fff;
-      padding: 36px 36px 24px 36px;
-      border-radius: 18px;
-      box-shadow: 0 4px 20px rgba(80,110,255,0.09);
-    }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(90deg,#dbeafe 80%,#f5f7fa 100%);
-      padding: 32px 36px 32px 28px;
-      border-radius: 18px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .hero-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .profile-pic {
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
-      border: 4px solid #fff;
-      margin-left: 30px;
-      background: #e7e7e7;
-      flex-shrink: 0;
-    }
-    .name { font-size: 2.3em; font-weight: 700; color: #26355d;}
-    .role { color: #4660a0; margin-bottom: 6px;}
-    .contact-btns {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-    .contact-btn {
-      display: inline-block;
-      background: #f5f7fa;
-      color: #4660a0;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 7px 22px;
-      margin-right: 12px;
-      margin-bottom: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, box-shadow 0.2s;
-      font-size: 1em;
-    }
-    .contact-btn:hover {
-      background: #4660a0;
-      color: #fff;
-      box-shadow: 0 2px 10px #c7d2fe55;
-    }
-    .download-btn {
-      background: #4660a0;
-      color: #fff;
-      border: none;
-      border-radius: 18px;
-      padding: 9px 32px;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 2px 10px #c7d2fe44;
-      transition: background 0.2s;
-      margin-top: 0;
-    }
-    .download-btn:hover {
-      background: #223265;
-    }
-    .section { margin-top: 38px; }
-    h2 { font-size: 1.35em; letter-spacing: 0.5px; }
-    .skills, .projects { display: flex; flex-wrap: wrap; gap: 10px; }
-    .badge {
-      background: #e0ecfd;
-      color: #3551a6;
-      border-radius: 14px;
-      padding: 6px 16px;
-      font-size: 1em;
-      margin: 3px;
-      transition: background 0.2s, transform 0.2s;
-      cursor: pointer;
-      box-shadow: 0 1px 4px rgba(80,110,255,0.06);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 16px;
-      margin: 3px 7px 3px 0;
-      word-break: break-all;
-      white-space: nowrap;
-    }
-    .icon-badge {
-      width: 18px;
-      height: 18px;
-      vertical-align: middle;
-    }
-    .badge i, .badge svg {
-      font-size: 1.1em;
-    }
-    .badge:hover {
-      background: #4660a0;
-      color: #fff;
-      transform: scale(1.07);
-    }
-    .timeline { margin: 0; padding: 0; list-style: none; }
-    .timeline li { margin-bottom: 22px; }
-    .timeline ul {
-      margin-left: 32px;
-      margin-top: 8px;
-    }
-    /* Indentation for nested lists */
-    @media (max-width:900px) {
-      .container { padding: 12px;}
-      .hero { flex-direction: column; align-items: flex-start; padding: 18px 12px;}
-      .profile-pic { margin: 12px auto 8px auto;}
-      .hero-info { text-align: left; width: 100%;}
-      .skills, .projects { gap: 8px;}
-    }
-    @media (max-width:600px) {
-      .container { padding: 4px;}
-      .hero { flex-direction: column; padding: 16px 4px;}
-      .profile-pic { margin: 0 auto 12px auto; width: 90px; height: 90px;}
-      .hero-info { text-align: center; }
-      .name { font-size: 1.4em; }
-      .section { margin-top: 22px;}
-      .skills, .projects { flex-direction: column; gap: 5px;}
-      .badge { font-size: 0.93em; padding: 5px 9px;}
-      .timeline ul { margin-left: 15px;}
-      .download-btn, .contact-btn { padding: 8px 14px; font-size: 0.95em;}
-      nav { font-size: 0.98em; gap: 14px;}
-    }
-    /* Make truly mobile friendly at 400px and below */
-    @media (max-width:400px) {
-      .container { padding: 0; margin: 0; border-radius: 0; box-shadow: none;}
-      .hero { padding: 8px 1vw 8px 1vw; border-radius: 0;}
-      .profile-pic { width: 72px; height: 72px; }
-      .name { font-size: 1.1em;}
-      .role { font-size: 0.95em;}
-      .location { font-size: 0.8em;}
-      .contact-btn, .download-btn { font-size: 0.86em; padding: 7px 7vw;}
-      .skills, .projects { gap: 2px;}
-      .badge { font-size: 0.85em; padding: 4px 5px; margin: 2px 2px 2px 0;}
-      .section { margin-top: 13px;}
-      nav { gap: 5px; font-size: 0.9em;}
-      h2 { font-size: 1.08em;}
-    }
-    /* Extra tweaks for 360px - Samsung/Moto/Pixel small screens */
-    @media (max-width:370px) {
-      .container { padding: 0 0.5vw; }
-      .hero { padding: 4px 2vw; }
-      .section { margin-top: 10px; }
-      .profile-pic { width: 58px; height: 58px; }
-      .name { font-size: 0.98em; }
-      .contact-btn, .download-btn { font-size: 0.78em; padding: 5px 2vw;}
-      .badge { font-size: 0.75em; }
-      nav { font-size: 0.82em;}
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-  <header style="position: sticky; top: 0; background: #ffffffee; box-shadow: 0 2px 12px #c7d2fe33; z-index: 1000; padding: 14px 0;">
-    <nav style="display: flex; gap: 28px; justify-content: center; font-weight: 600; font-size: 1.08em; flex-wrap: wrap;">
-      <a href="#about" style="color: #4660a0; text-decoration: none;">About</a>
-      <a href="#experience" style="color: #4660a0; text-decoration: none;">Experience</a>
-      <a href="#skills" style="color: #4660a0; text-decoration: none;">Skills</a>
-      <a href="#projects" style="color: #4660a0; text-decoration: none;">Projects</a>
-      <a href="#education" style="color: #4660a0; text-decoration: none;">Education</a>
+<body>
+  <div class="wip-banner" id="wipBanner">
+    <div class="wip-content">
+      <i class="fas fa-tools"></i>
+      <span class="wip-text">This website is currently under development. Some features may not be fully functional.</span>
+      <button class="wip-close" onclick="closeWipBanner()" aria-label="Close banner">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
     </nav>
   </header>
-  <div class="container" style="box-shadow: 0 8px 32px #4660a052;">
+  <div class="container">
     <div class="hero">
       <div class="hero-info">
         <div class="name">Mohan Prasad</div>
         <div class="role">SDET (Software Development Engineer in Test)</div>
-        <div class="location" style="font-size: 0.9em; color: #666; margin-top: 5px;">
-          📍 Mumbai, India | 📞 <a href="tel:+917506760865" style="color: #4660a0; text-decoration: none; font-weight: 600;">7506760865</a>
+        <div class="location">
+          📍 Mumbai, India | 📞 <a href="tel:+917506760865">7506760865</a>
         </div>
         <div class="contact-btns">
-          <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i>Email</a>
-          <a class="contact-btn" href="https://www.linkedin.com/in/mohanprasadqa/" target="_blank"><i class="fab fa-linkedin" style="margin-right: 8px;"></i>LinkedIn</a>
-          <a class="contact-btn" href="https://github.com/mohan949" target="_blank"><i class="fab fa-github" style="margin-right: 8px;"></i>GitHub</a>
-          <button class="download-btn" onclick="window.open('https://flowcv.com/resume/fk4b33hi1j')"><i class="fas fa-download" style="margin-right: 8px;"></i>Download Resume</button>
+          <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+          <a class="contact-btn" href="https://www.linkedin.com/in/mohanprasadqa/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+          <a class="contact-btn" href="https://github.com/mohan949" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+          <button class="download-btn" onclick="window.open('https://flowcv.com/resume/fk4b33hi1j')"><i class="fas fa-download"></i>Download Resume</button>
         </div>
       </div>
       <img src="https://ui-avatars.com/api/?name=Mohan+Prasad&background=4660a0&color=fff&size=128" class="profile-pic" alt="Profile Photo">
     </div>
     <div class="section" id="about">
-      <h2 style="display: flex; align-items: center;"><i class="fas fa-user-circle" style="margin-right: 10px;color: #4660a0;"></i>About</h2>
+      <h2><i class="fas fa-user-circle"></i>About</h2>
       <p>
         SDET with 3+ years of experience in automation and functional testing across e-commerce, pharmaceuticals, and blockchain. Passionate about building scalable QA automation frameworks, reducing onboarding time, and collaborating with global teams to deliver quality products.
       </p>
     </div>
     <div class="section" id="experience">
-      <h2 style="display: flex; align-items: center;"><i class="fas fa-briefcase" style="margin-right: 10px;color: #4660a0;"></i>Experience</h2>
+      <h2><i class="fas fa-briefcase"></i>Experience</h2>
       <ul class="timeline">
         <li>
-          <b>SDET-1, Fynd - JIO, Mumbai</b> <span style="float:right">Feb 2023 – Present</span>
+          <b>SDET-1, Fynd - JIO, Mumbai</b> <span class="timeline-date">Feb 2023 – Present</span>
           <ul>
             <li><b>QA DRI Commerce India/Global team:</b> Conducted extensive functional and automation testing, designed robust automation frameworks using Python Pytest and Playwright, significantly reducing client onboarding time by improving test efficiency.</li>
             <li><b>QA SME Mobile Apps (15M+ downloads):</b> Led testing for Android/iOS apps including Gofynd, Uniket, Myjio, Fynd Store, and Sephora with BrowserStack Integration. Skills: Appium, Functional Testing.</li>
@@ -240,12 +72,12 @@
           </ul>
         </li>
         <li>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
-            <span style="font-weight:bold; font-size:1.08em;">Software Test Engineer</span>
-            <span style="font-size: 0.98em; color:#444;">2021/08 – 2023/02<br>Mumbai</span>
+          <div class="job-header">
+            <span class="job-title">Software Test Engineer</span>
+            <span class="job-duration">2021/08 – 2023/02<br>Mumbai</span>
           </div>
-          <div style="font-style: italic; margin-bottom: 2px; color:#555;">I2e Consulting &nbsp; <span style="font-size:0.97em; color:#888;">- 5 month Intern + 1.3 Full time</span></div>
-          <ul style="margin-top: 2px;">
+          <div class="company-name">I2e Consulting &nbsp; <span class="company-detail">- 5 month Intern + 1.3 Full time</span></div>
+          <ul>
             <li><b>Led functional and automated testing</b> of web and mobile applications in healthcare and blockchain, ensuring compliance for clients like Pfizer.</li>
             <li><b>Pfizer Medicine Research Tool:</b> Conducted manual and automated web testing using <b>Selenium Java</b>, creating test scenarios, executing regression tests, and maintaining test cases for reliability.</li>
             <li><b>BBT NFT (Blockchain &amp; E-Commerce):</b> Managed end-to-end testing, including blockchain integration with Ethereum and smart contract testing, ensuring secure transaction workflows.</li>
@@ -257,40 +89,139 @@
       </ul>
     </div>
     <div class="section" id="skills">
-      <h2 style="display: flex; align-items: center;"><i class="fas fa-tasks" style="margin-right: 10px;color: #4660a0;"></i>Skills</h2>
+      <h2><i class="fas fa-tasks"></i>Skills</h2>
       <div class="skills">
-        <span class="badge" style="background: #e8f0fe;"><i class="fab fa-python" style="color: #3572A5;"></i> Python</span>
-        <span class="badge" style="background: #fff3e3;"><i class="fab fa-java" style="color: #b07219;"></i> Java</span>
-        <span class="badge" style="background: #f0db4f; color:#222;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="icon-badge"> JavaScript</span>
-        <span class="badge" style="background:#3178c6; color:#fff;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" class="icon-badge"> TypeScript</span>
-        <span class="badge" style="background: #e5f9ea;"><i class="fas fa-robot" style="color: #00b894;"></i> Selenium</span>
-        <span class="badge" style="background: #f0f4fa;"><i class="fas fa-theater-masks"></i> Playwright</span>
-        <span class="badge" style="background: #fff3e3;"><i class="fas fa-mobile-alt"></i> Appium</span>
-        <span class="badge" style="background: #e8f0fe;"><i class="fas fa-paper-plane"></i> Postman</span>
-        <span class="badge" style="background: #e5f9ea;"><i class="fas fa-plug"></i> API Testing</span>
-        <span class="badge" style="background: #f0f4fa;"><i class="fas fa-infinity"></i> CI/CD</span>
-        <span class="badge" style="background: #fff3e3;"><i class="fas fa-window-maximize"></i> BrowserStack</span>
-        <span class="badge" style="background: #e8f0fe;"><i class="fas fa-database"></i> SQL</span>
+        <span class="badge python"><i class="fab fa-python"></i> Python</span>
+        <span class="badge java"><i class="fab fa-java"></i> Java</span>
+        <span class="badge javascript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="icon-badge"> JavaScript</span>
+        <span class="badge typescript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" class="icon-badge"> TypeScript</span>
+        <span class="badge selenium"><i class="fas fa-robot"></i> Selenium</span>
+        <span class="badge playwright"><i class="fas fa-theater-masks"></i> Playwright</span>
+        <span class="badge appium"><i class="fas fa-mobile-alt"></i> Appium</span>
+        <span class="badge postman"><i class="fas fa-paper-plane"></i> Postman</span>
+        <span class="badge api"><i class="fas fa-plug"></i> API Testing</span>
+        <span class="badge cicd"><i class="fas fa-infinity"></i> CI/CD</span>
+        <span class="badge browserstack"><i class="fas fa-window-maximize"></i> BrowserStack</span>
+        <span class="badge sql"><i class="fas fa-database"></i> SQL</span>
+      </div>
+      
+      <h3 class="skills-subtitle">Proficiency Levels</h3>
+      <div class="skills-progress">
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Test Automation (Selenium/Playwright)</span>
+            <div class="skill-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Python/Java Programming</span>
+            <div class="skill-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">API Testing & Integration</span>
+            <div class="skill-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Mobile Testing (Appium)</span>
+            <div class="skill-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">CI/CD & DevOps</span>
+            <div class="skill-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="section" id="projects">
-      <h2 style="display: flex; align-items: center;"><i class="fas fa-lightbulb" style="margin-right: 10px;color: #4660a0;"></i>Projects</h2>
-      <div class="projects" style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <div style="flex: 1 1 290px; background: #f6fafd; padding: 20px 20px 18px 20px; border-radius: 14px; box-shadow:0 2px 10px #4660a012;transition: box-shadow 0.2s;">
-          <b>AI Web Automation Suite</b><br>Built scalable test automation using Playwright and Python.
+      <h2><i class="fas fa-lightbulb"></i>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-title">AI Web Automation Suite</div>
+          <div class="project-description">Built scalable test automation using Playwright and Python.</div>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Playwright</span>
+            <span class="tech-tag">AI/ML</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Project</a>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
         </div>
-        <div style="flex: 1 1 290px; background: #fff9f0; padding: 20px 20px 18px 20px; border-radius: 14px; box-shadow:0 2px 10px #ffbb0010;transition: box-shadow 0.2s;">
-          <b>Pfizer Medicine Research Tool</b><br>End-to-end testing with Selenium and Java.
+        <div class="project-card">
+          <div class="project-title">Pfizer Medicine Research Tool</div>
+          <div class="project-description">End-to-end testing with Selenium and Java.</div>
+          <div class="project-tech">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Selenium</span>
+            <span class="tech-tag">TestNG</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">E-Commerce Test Framework</div>
+          <div class="project-description">Comprehensive testing framework for JioMart platform including API, UI, and mobile testing.</div>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Appium</span>
+            <span class="tech-tag">API Testing</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="section" id="education">
-      <h2>Education & Certificates</h2>
-      <div>
-        <b>B.E./B.Tech in Computer Science</b>, Don Bosco Institute of Technology, Mumbai University<br>
-        <b>Certifications:</b> CSS, JavaScript (Coursera), Selenium WebDriver, Python for Everybody (Coursera)
+      <h2><i class="fas fa-graduation-cap"></i>Education & Certificates</h2>
+      <div class="education-content">
+        <div class="degree">B.E./B.Tech in Computer Science</div>
+        Don Bosco Institute of Technology, Mumbai University
+        <div class="certifications">
+          <span class="certifications-label">Certifications:</span> CSS, JavaScript (Coursera), Selenium WebDriver, Python for Everybody (Coursera)
+        </div>
       </div>
     </div>
   </div>
+  <script src="js/main.js"></script>
 </body>
 </html>
