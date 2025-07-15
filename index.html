@@ -10,8 +10,8 @@
 <body>
   <div class="wip-banner" id="wipBanner">
     <div class="wip-content">
-      <i class="fas fa-tools"></i>
-      <span class="wip-text">This website is currently under development. Some features may not be fully functional.</span>
+      <i class="fas fa-sync-alt"></i>
+      <span class="wip-text">Content updates in progress. Information is being refreshed with latest achievements and projects.</span>
       <button class="wip-close" onclick="closeWipBanner()" aria-label="Close banner">
         <i class="fas fa-times"></i>
       </button>
@@ -32,7 +32,13 @@
         <div class="name">Mohan Prasad</div>
         <div class="role">SDET (Software Development Engineer in Test)</div>
         <div class="location">
-          📍 Mumbai, India | 📞 <a href="tel:+917506760865">7506760865</a>
+          <span>📍 Mumbai, India</span>
+          <span class="phone-divider">|</span>
+          <button class="phone-reveal-btn" onclick="revealPhone()" id="phoneRevealBtn">
+            <i class="fas fa-phone-alt"></i>
+            <span>Show Contact</span>
+          </button>
+          <span class="phone-info" id="phoneInfo">📞 <a href="tel:+917506760865">7506760865</a></span>
         </div>
         <div class="contact-btns">
           <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com"><i class="fas fa-envelope"></i>Email</a>
@@ -41,7 +47,15 @@
           <button class="download-btn" onclick="window.open('https://flowcv.com/resume/fk4b33hi1j')"><i class="fas fa-download"></i>Download Resume</button>
         </div>
       </div>
-      <img src="https://ui-avatars.com/api/?name=Mohan+Prasad&background=4660a0&color=fff&size=128" class="profile-pic" alt="Profile Photo">
+      <div class="profile-pic-wrapper">
+        <img src="https://media.licdn.com/dms/image/v2/C4D03AQEnwL-ZeSBe8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661445010184?e=2147483647&v=beta&t=nEJzcc3wuOHwVZ82FYEfY6H-XCpTnQ6miw501mNCGyU" class="profile-pic" alt="Mohan Prasad - Profile Photo">
+        <div class="profile-overlay">
+          <a href="tel:+917506760865" class="phone-overlay">
+            <i class="fas fa-phone"></i>
+            <span>7506760865</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="section" id="about">
       <h2><i class="fas fa-user-circle"></i>About</h2>

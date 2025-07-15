@@ -1,3 +1,23 @@
+// Function to reveal phone number
+function revealPhone() {
+    const phoneInfo = document.getElementById('phoneInfo');
+    const phoneBtn = document.getElementById('phoneRevealBtn');
+    
+    if (phoneInfo && phoneBtn) {
+        phoneInfo.classList.add('visible');
+        phoneBtn.classList.add('hidden');
+        
+        // Save state in localStorage
+        localStorage.setItem('phoneRevealed', 'true');
+    }
+}
+
+// Function to reset phone visibility (for testing)
+function resetPhoneVisibility() {
+    localStorage.removeItem('phoneRevealed');
+    location.reload();
+}
+
 // Function to close WIP banner
 function closeWipBanner() {
     const banner = document.getElementById('wipBanner');
@@ -23,6 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
         banner.style.display = 'none';
     } else {
         document.body.classList.add('has-banner');
+    }
+    
+    // Check if phone was previously revealed
+    const phoneRevealed = localStorage.getItem('phoneRevealed');
+    const phoneInfo = document.getElementById('phoneInfo');
+    const phoneBtn = document.getElementById('phoneRevealBtn');
+    
+    // Only on desktop - mobile always shows phone
+    if (window.innerWidth > 768) {
+        if (phoneRevealed === 'true' && phoneInfo && phoneBtn) {
+            phoneInfo.classList.add('visible');
+            phoneBtn.classList.add('hidden');
+        }
     }
     
     // Get all navigation links
@@ -195,4 +228,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Add fallback for profile image
+    const profileImg = document.querySelector('.profile-pic');
+    if (profileImg) {
+        profileImg.addEventListener('error', function() {
+            this.src = 'https://ui-avatars.com/api/?name=Mohan+Prasad&background=4660a0&color=fff&size=200';
+        });
+    }
 }); 
