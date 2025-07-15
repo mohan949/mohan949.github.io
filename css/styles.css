@@ -535,20 +535,20 @@ h2 { font-size: 1.35em; letter-spacing: 0.5px; }
   transform: scaleX(1);
 }
 
-.project-card:nth-child(2) {
+.project-card.variant-orange {
   background: #fff9f0;
 }
 
-.project-card:nth-child(2) .project-icon {
+.project-card.variant-orange .project-icon {
   background: #ffe5cc;
   color: #ff8c42;
 }
 
-.project-card:nth-child(3) {
+.project-card.variant-blue {
   background: #f0f8ff;
 }
 
-.project-card:nth-child(3) .project-icon {
+.project-card.variant-blue .project-icon {
   background: #cce7ff;
   color: #0066cc;
 }
@@ -593,6 +593,13 @@ h2 { font-size: 1.35em; letter-spacing: 0.5px; }
   font-size: 0.9em;
 }
 
+.repo-tag:hover {
+  background: rgba(70, 96, 160, 0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
 /* View all projects button */
 .view-all-projects {
   text-align: center;
@@ -630,12 +637,12 @@ body.dark-mode .project-icon {
   color: #64b5f6;
 }
 
-body.dark-mode .project-card:nth-child(2) .project-icon {
+body.dark-mode .project-card.variant-orange .project-icon {
   background: #2a1a0e;
   color: #ffa500;
 }
 
-body.dark-mode .project-card:nth-child(3) .project-icon {
+body.dark-mode .project-card.variant-blue .project-icon {
   background: #0a1a2e;
   color: #4da6ff;
 }
@@ -643,6 +650,18 @@ body.dark-mode .project-card:nth-child(3) .project-icon {
 body.dark-mode .repo-tag {
   background: rgba(100, 181, 246, 0.1);
   color: #64b5f6;
+}
+
+body.dark-mode .view-github-btn {
+  background: #2d3748;
+  color: #e2e8f0;
+  border: 1px solid #4a5568;
+}
+
+body.dark-mode .view-github-btn:hover {
+  background: #4a5568;
+  border-color: #718096;
+  transform: translateY(-2px);
 }
 
 /* Education section improvements */
@@ -926,8 +945,15 @@ p {
 /* Update projects grid */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
+}
+
+@media (max-width: 320px) {
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 /* Project tech tags */
@@ -1375,7 +1401,7 @@ body.dark-mode .skills-subtitle {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 1050;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   animation: slideDown 0.5s ease forwards;
   height: 48px;
@@ -1423,6 +1449,7 @@ body.dark-mode .skills-subtitle {
 .wip-content i.fa-sync-alt {
   font-size: 1.1em;
   animation: rotate 2s linear infinite;
+  will-change: transform;
 }
 
 @keyframes rotate {
