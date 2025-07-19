@@ -1,3 +1,5 @@
+// Removed complex navigation toggle - using simple horizontal scroll nav for mobile
+
 // Function to toggle phone number visibility
 function togglePhone() {
     const phoneInfo = document.getElementById('phoneInfo');
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Get all navigation links
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('.section');
     
     // Function to update active link
@@ -114,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Check if we're at the bottom of the page (for Education section)
         if (scrollPosition + windowHeight >= documentHeight - 50) {
-            const educationLink = document.querySelector('nav a[href="#education"]');
+            const educationLink = document.querySelector('.nav-links a[href="#education"]');
             if (educationLink) {
                 educationLink.classList.add('active');
                 return;
@@ -128,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionId = section.getAttribute('id');
             
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
                 if (activeLink) {
                     activeLink.classList.add('active');
                 }
@@ -148,6 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
+            
+            // Navigation link clicked - no action needed for simple horizontal nav
             
             if (targetSection) {
                 const headerHeight = document.querySelector('header').offsetHeight;

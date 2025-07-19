@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1200, initial-scale=0.4, minimum-scale=0.3, maximum-scale=2.0, user-scalable=yes">
   <title>Mohan Prasad - SDET | Software Development Engineer in Test</title>
   
   <!-- SEO Meta Tags -->
@@ -49,12 +49,14 @@
   </div>
   <header role="banner">
     <nav role="navigation" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#github">GitHub</a>
-      <a href="#education">Education</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#education">Education</a>
+      </div>
     </nav>
   </header>
   <main class="container" role="main" aria-label="Resume content">
@@ -141,19 +143,45 @@
     </div>
     <div class="section" id="skills" role="region" aria-label="Technical skills">
       <h2><i class="fas fa-tasks" aria-hidden="true"></i>Skills</h2>
-      <div class="skills">
-        <span class="badge python"><i class="fab fa-python"></i> Python</span>
-        <span class="badge java"><i class="fab fa-java"></i> Java</span>
-        <span class="badge javascript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" class="icon-badge"> JavaScript</span>
-        <span class="badge typescript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" class="icon-badge"> TypeScript</span>
-        <span class="badge selenium"><i class="fas fa-robot"></i> Selenium</span>
-        <span class="badge playwright"><i class="fas fa-theater-masks"></i> Playwright</span>
-        <span class="badge appium"><i class="fas fa-mobile-alt"></i> Appium</span>
-        <span class="badge postman"><i class="fas fa-paper-plane"></i> Postman</span>
-        <span class="badge api"><i class="fas fa-plug"></i> API Testing</span>
-        <span class="badge cicd"><i class="fas fa-infinity"></i> CI/CD</span>
-        <span class="badge browserstack"><i class="fas fa-window-maximize"></i> BrowserStack</span>
-        <span class="badge sql"><i class="fas fa-database"></i> SQL</span>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h4 class="skill-category-title"><i class="fas fa-code"></i> Programming Languages</h4>
+          <div class="skills">
+            <span class="badge python"><i class="fab fa-python"></i> Python</span>
+            <span class="badge java"><i class="fab fa-java"></i> Java</span>
+            <span class="badge javascript"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span class="badge typescript"><i class="fab fa-js-square"></i> TypeScript</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4 class="skill-category-title"><i class="fas fa-robot"></i> Testing Frameworks</h4>
+          <div class="skills">
+            <span class="badge selenium"><i class="fas fa-robot"></i> Selenium</span>
+            <span class="badge playwright"><i class="fas fa-theater-masks"></i> Playwright</span>
+            <span class="badge appium"><i class="fas fa-mobile-alt"></i> Appium</span>
+            <span class="badge postman"><i class="fas fa-paper-plane"></i> Postman</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4 class="skill-category-title"><i class="fas fa-cogs"></i> Testing Types & Tools</h4>
+          <div class="skills">
+            <span class="badge api"><i class="fas fa-plug"></i> API Testing</span>
+            <span class="badge backend"><i class="fas fa-server"></i> Backend Testing</span>
+            <span class="badge database"><i class="fas fa-database"></i> Database Testing</span>
+            <span class="badge cicd"><i class="fas fa-infinity"></i> CI/CD</span>
+            <span class="badge browserstack"><i class="fas fa-window-maximize"></i> BrowserStack</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4 class="skill-category-title"><i class="fas fa-database"></i> Databases</h4>
+          <div class="skills">
+            <span class="badge sql"><i class="fas fa-database"></i> SQL</span>
+            <span class="badge mongodb"><i class="fas fa-leaf"></i> MongoDB</span>
+          </div>
+        </div>
       </div>
       
       <h3 class="skills-subtitle">Proficiency Levels</h3>
