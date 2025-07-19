@@ -67,9 +67,9 @@ nav a.active {
 /* Container with enhanced shadow */
 .container {
   max-width: 850px;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 40px auto;
   background: #fff;
-  padding: 36px 36px 24px 36px;
+  padding: 36px 36px 60px 36px;
   border-radius: 18px;
   box-shadow: 0 8px 32px rgba(70, 96, 160, 0.15);
   position: relative;
@@ -289,6 +289,25 @@ body.has-banner .container {
   }
 }
 
+/* Phone hide button styling */
+.phone-hide-btn {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 0.85em;
+  padding: 2px 6px;
+  margin-left: 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+
+.phone-hide-btn:hover {
+  background: rgba(70, 96, 160, 0.1);
+  color: #4660a0;
+}
+
 /* Dark mode styling */
 body.dark-mode .phone-reveal-btn {
   border-color: #64b5f6;
@@ -299,6 +318,34 @@ body.dark-mode .phone-reveal-btn:hover {
   background: #64b5f6;
   color: #0f3460;
   box-shadow: 0 2px 8px rgba(100, 181, 246, 0.3);
+}
+
+body.dark-mode .phone-hide-btn {
+  color: #666;
+}
+
+body.dark-mode .phone-hide-btn:hover {
+  background: rgba(100, 181, 246, 0.1);
+  color: #64b5f6;
+}
+
+/* Progressive enhancement - show phone by default if no JS */
+.no-js .phone-reveal-btn {
+  display: none;
+}
+
+.no-js .phone-info {
+  display: inline-flex;
+  opacity: 1;
+}
+
+.no-js .wip-banner {
+  display: none;
+}
+
+.no-js .stat-card {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Mobile - always show phone number */
@@ -336,6 +383,170 @@ body.dark-mode .phone-reveal-btn:hover {
 /* Dark mode location styling */
 body.dark-mode .location {
   color: #b0b0b0;
+}
+
+/* Focus states for accessibility */
+:focus {
+  outline: 2px solid #4660a0;
+  outline-offset: 2px;
+}
+
+body.dark-mode :focus {
+  outline-color: #64b5f6;
+}
+
+/* Custom focus styles for specific elements */
+.contact-btn:focus,
+.download-btn:focus,
+nav a:focus,
+.skill-item:focus,
+.project-card:focus,
+.view-github-btn:focus,
+.github-profile-btn:focus,
+.repo-tag:focus,
+.phone-reveal-btn:focus,
+.phone-hide-btn:focus,
+.wip-close:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* Remove default focus outline for buttons when clicked */
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Visible focus for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #4660a0;
+  outline-offset: 4px;
+}
+
+body.dark-mode :focus-visible {
+  outline-color: #64b5f6;
+}
+
+/* Loading skeleton styles */
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton-text.title {
+  height: 24px;
+  width: 60%;
+  margin-bottom: 16px;
+}
+
+.skeleton-text.short {
+  width: 40%;
+}
+
+.skeleton-box {
+  height: 120px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+body.dark-mode .skeleton {
+  background: linear-gradient(90deg, #2a2a2a 25%, #333333 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+/* Hide skeleton when content loads */
+.content-loaded .skeleton {
+  display: none;
+}
+
+/* Notification styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  z-index: 2000;
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification.success {
+  background: #4caf50;
+  color: white;
+}
+
+.notification.error {
+  background: #f44336;
+  color: white;
+}
+
+.notification.info {
+  background: #2196f3;
+  color: white;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.notification button:hover {
+  opacity: 1;
+}
+
+body.dark-mode .notification {
+  background: #333;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Add padding to sections for better scroll behavior */
+.section {
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+.section:last-child {
+  padding-bottom: 40px;
 }
 
 /* Section headers with icons */
@@ -1345,7 +1556,15 @@ body.dark-mode .scroll-to-top:hover {
   color: #ffc107;
   transition: all 0.3s ease;
   opacity: 0;
+  animation: starPop 0.4s ease forwards;
 }
+
+/* Delay each star */
+.skill-stars i:nth-child(1) { animation-delay: 0.1s; }
+.skill-stars i:nth-child(2) { animation-delay: 0.2s; }
+.skill-stars i:nth-child(3) { animation-delay: 0.3s; }
+.skill-stars i:nth-child(4) { animation-delay: 0.4s; }
+.skill-stars i:nth-child(5) { animation-delay: 0.5s; }
 
 .skill-stars i.fas {
   text-shadow: 0 1px 3px rgba(255, 193, 7, 0.3);
@@ -1492,18 +1711,18 @@ body.dark-mode .wip-banner {
 @media (max-width: 600px) {
   .wip-banner {
     padding: 10px 15px;
-    height: auto;
-    min-height: 44px;
+    height: 48px; /* Consistent with desktop */
   }
   
   .wip-text {
     font-size: 0.85em;
     padding-right: 30px; /* Space for close button */
+    line-height: 1.2;
   }
   
   .wip-content {
     gap: 8px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevent wrapping */
   }
   
   .wip-close {
@@ -1513,11 +1732,15 @@ body.dark-mode .wip-banner {
   }
   
   body.has-banner header {
-    top: 44px;
+    top: 48px; /* Consistent with banner height */
   }
   
   body.has-banner .container {
-    margin-top: 84px; /* Adjusted for mobile banner height */
+    margin-top: 88px; /* 40px original + 48px banner height */
+  }
+  
+  body.has-banner {
+    scroll-padding-top: 128px; /* 80px header + 48px banner */
   }
 } 
 
@@ -1598,30 +1821,33 @@ body.dark-mode .profile-overlay {
 
 .repo-languages {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   margin-bottom: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .lang-dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-dot::before {
+  content: '';
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  position: relative;
+  flex-shrink: 0;
 }
 
 .lang-dot::after {
-  content: attr(class);
-  position: absolute;
-  left: 18px;
-  top: -2px;
   font-size: 0.85em;
   color: #666;
   white-space: nowrap;
-  text-transform: capitalize;
 }
 
-.lang-dot.python {
+.lang-dot.python::before {
   background: #3572A5;
 }
 
@@ -1629,7 +1855,7 @@ body.dark-mode .profile-overlay {
   content: 'Python';
 }
 
-.lang-dot.javascript {
+.lang-dot.javascript::before {
   background: #f1e05a;
 }
 
@@ -1637,7 +1863,7 @@ body.dark-mode .profile-overlay {
   content: 'JavaScript';
 }
 
-.lang-dot.html {
+.lang-dot.html::before {
   background: #e34c26;
 }
 

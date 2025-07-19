@@ -1,24 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohan Prasad - SDET</title>
+  <title>Mohan Prasad - SDET | Software Development Engineer in Test</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Mohan Prasad - SDET (Software Development Engineer in Test) based in Mumbai, India. Specializing in test automation, Python, JavaScript, and QA frameworks.">
+  <meta name="keywords" content="SDET, Software Development Engineer in Test, Test Automation, Python, JavaScript, QA Engineer, Mumbai, Mohan Prasad">
+  <meta name="author" content="Mohan Prasad">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohan949.github.io/">
+  <meta property="og:title" content="Mohan Prasad - SDET | Software Development Engineer in Test">
+  <meta property="og:description" content="Experienced SDET specializing in test automation, Python, JavaScript, and modern QA frameworks. View my portfolio and projects.">
+  <meta property="og:image" content="https://media.licdn.com/dms/image/D4D03AQGNwUKONbl_vg/profile-displayphoto-shrink_400_400/0/1692897226965?e=1711584000&v=beta&t=_FN6cPe9fQJvb1hLCipjRGgBiU0w3q3V9qv9ggQ_sCU">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mohan949.github.io/">
+  <meta property="twitter:title" content="Mohan Prasad - SDET | Software Development Engineer in Test">
+  <meta property="twitter:description" content="Experienced SDET specializing in test automation, Python, JavaScript, and modern QA frameworks. View my portfolio and projects.">
+  <meta property="twitter:image" content="https://media.licdn.com/dms/image/D4D03AQGNwUKONbl_vg/profile-displayphoto-shrink_400_400/0/1692897226965?e=1711584000&v=beta&t=_FN6cPe9fQJvb1hLCipjRGgBiU0w3q3V9qv9ggQ_sCU">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://mohan949.github.io/">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABaklEQVRYhe2WMU7DQBCFn5FQkBKLgoYGKBCNT0DJCbgBJ+AKHIEjcAJOkBtwApoUKFJIg0SDRAEFEhLyFrOWN/Zudtd2RPKkUbKz8+btzs7OQgXKAVPAJDABjPvPBuAT+AA6wCvQBjpJ1mVXIzAJLAKLQD6itgu8ADfAtdsfJCBnBW4DOmKMgF1gaYjGiRGQs4vOT7BuQE8L2AHuhzDcD9UCVoEaUASm/WeN5AlQBnaALwCPAAkBeSKk9ongC3iU8FqQOgTGJBB5o7iL1wL2sLUPogrsyZA2okK3kF5gMUvj0Vh4MaojoKaNeCOjNBoVb0bQfwjKJLNiHmAJKGkjd8AWyRgHNkm9qlUPW7vQHPCG++X8xZ5LJqoekJ8TUNdGOq4T9tEN6vVG2Ah9A3k7AWeWAkDejsDZoGyEvhViT+QFUj4OKkbAfqBsFF2IvnNZD8iLJ/IoJC8W0QvwBJzir2JgHViOYPwfNeNrlRJiZ0MAAAAASUVORK5CYII=">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Remove no-js class if JavaScript is enabled -->
+  <script>document.documentElement.classList.remove('no-js');</script>
 </head>
 <body>
   <div class="wip-banner" id="wipBanner">
     <div class="wip-content">
       <i class="fas fa-sync-alt"></i>
       <span class="wip-text">Content updates in progress. Information is being refreshed with latest achievements and projects.</span>
-      <button class="wip-close" onclick="closeWipBanner()" aria-label="Close banner">
+      <button class="wip-close" onclick="closeWipBanner()" aria-label="Close banner" tabindex="0">
         <i class="fas fa-times"></i>
       </button>
     </div>
   </div>
-  <header>
-    <nav>
+  <header role="banner">
+    <nav role="navigation" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -27,19 +57,24 @@
       <a href="#education">Education</a>
     </nav>
   </header>
-  <div class="container">
-    <div class="hero">
+  <main class="container" role="main" aria-label="Resume content">
+    <div class="hero" role="region" aria-label="Personal information">
       <div class="hero-info">
         <div class="name">Mohan Prasad</div>
         <div class="role">SDET (Software Development Engineer in Test)</div>
         <div class="location">
           <span>📍 Mumbai, India</span>
           <span class="phone-divider">|</span>
-          <button class="phone-reveal-btn" onclick="revealPhone()" id="phoneRevealBtn">
+          <button class="phone-reveal-btn" onclick="togglePhone()" id="phoneRevealBtn">
             <i class="fas fa-phone-alt"></i>
-            <span>Show Contact</span>
+            <span id="phoneToggleText">Show Contact</span>
           </button>
-          <span class="phone-info" id="phoneInfo">📞 <a href="tel:+917506760865">7506760865</a></span>
+          <span class="phone-info" id="phoneInfo">
+            📞 <a href="tel:+917506760865">7506760865</a>
+            <button class="phone-hide-btn" onclick="togglePhone()" title="Hide phone number">
+              <i class="fas fa-eye-slash"></i>
+            </button>
+          </span>
         </div>
         <div class="contact-btns">
           <a class="contact-btn" href="mailto:Prasadmohan949@gmail.com"><i class="fas fa-envelope"></i>Email</a>
@@ -50,7 +85,7 @@
         </div>
       </div>
       <div class="profile-pic-wrapper">
-        <img src="https://media.licdn.com/dms/image/v2/C4D03AQEnwL-ZeSBe8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661445010184?e=2147483647&v=beta&t=nEJzcc3wuOHwVZ82FYEfY6H-XCpTnQ6miw501mNCGyU" class="profile-pic" alt="Mohan Prasad - Profile Photo">
+        <img src="https://media.licdn.com/dms/image/v2/C4D03AQEnwL-ZeSBe8Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1661445010184?e=2147483647&v=beta&t=nEJzcc3wuOHwVZ82FYEfY6H-XCpTnQ6miw501mNCGyU" class="profile-pic" alt="Mohan Prasad - Profile Photo" loading="lazy" decoding="async">
         <div class="profile-overlay">
           <a href="tel:+917506760865" class="phone-overlay">
             <i class="fas fa-phone"></i>
@@ -59,14 +94,14 @@
         </div>
       </div>
     </div>
-    <div class="section" id="about">
-      <h2><i class="fas fa-user-circle"></i>About</h2>
+    <div class="section" id="about" role="region" aria-label="About me">
+      <h2><i class="fas fa-user-circle" aria-hidden="true"></i>About</h2>
       <p>
         SDET with 3+ years of experience in automation and functional testing across e-commerce, pharmaceuticals, and blockchain. Passionate about building scalable QA automation frameworks, reducing onboarding time, and collaborating with global teams to deliver quality products.
       </p>
     </div>
-    <div class="section" id="experience">
-      <h2><i class="fas fa-briefcase"></i>Experience</h2>
+    <div class="section" id="experience" role="region" aria-label="Work experience">
+      <h2><i class="fas fa-briefcase" aria-hidden="true"></i>Experience</h2>
       <ul class="timeline">
         <li>
           <b>SDET-1, Fynd - JIO, Mumbai</b> <span class="timeline-date">Feb 2023 – Present</span>
@@ -104,8 +139,8 @@
         </li>
       </ul>
     </div>
-    <div class="section" id="skills">
-      <h2><i class="fas fa-tasks"></i>Skills</h2>
+    <div class="section" id="skills" role="region" aria-label="Technical skills">
+      <h2><i class="fas fa-tasks" aria-hidden="true"></i>Skills</h2>
       <div class="skills">
         <span class="badge python"><i class="fab fa-python"></i> Python</span>
         <span class="badge java"><i class="fab fa-java"></i> Java</span>
@@ -126,12 +161,12 @@
         <div class="skill-item">
           <div class="skill-header">
             <span class="skill-name">Test Automation (Selenium/Playwright)</span>
-            <div class="skill-stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
+            <div class="skill-stars" role="img" aria-label="4.5 out of 5 stars">
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star" aria-hidden="true"></i>
+              <i class="fas fa-star-half-alt" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -342,7 +377,7 @@
           </div>
           <div class="stat-card">
             <i class="fas fa-calendar-check"></i>
-            <div class="stat-number">2024</div>
+            <div class="stat-number">2025</div>
             <div class="stat-label">Latest Activity</div>
           </div>
         </div>
@@ -376,7 +411,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
   <script src="js/main.js"></script>
 </body>
 </html>

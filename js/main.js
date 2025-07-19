@@ -1,21 +1,26 @@
-// Function to reveal phone number
-function revealPhone() {
+// Function to toggle phone number visibility
+function togglePhone() {
     const phoneInfo = document.getElementById('phoneInfo');
     const phoneBtn = document.getElementById('phoneRevealBtn');
+    const toggleText = document.getElementById('phoneToggleText');
     
     if (phoneInfo && phoneBtn) {
-        phoneInfo.classList.add('visible');
-        phoneBtn.classList.add('hidden');
+        const isVisible = phoneInfo.classList.contains('visible');
         
-        // Save state in localStorage
-        localStorage.setItem('phoneRevealed', 'true');
+        if (isVisible) {
+            // Hide phone
+            phoneInfo.classList.remove('visible');
+            phoneBtn.classList.remove('hidden');
+            if (toggleText) toggleText.textContent = 'Show Contact';
+            localStorage.setItem('phoneRevealed', 'false');
+        } else {
+            // Show phone
+            phoneInfo.classList.add('visible');
+            phoneBtn.classList.add('hidden');
+            if (toggleText) toggleText.textContent = 'Hide Contact';
+            localStorage.setItem('phoneRevealed', 'true');
+        }
     }
-}
-
-// Function to reset phone visibility (for testing)
-function resetPhoneVisibility() {
-    localStorage.removeItem('phoneRevealed');
-    location.reload();
 }
 
 // Function to close WIP banner
@@ -33,8 +38,42 @@ function closeWipBanner() {
     localStorage.setItem('wipBannerClosed', 'true');
 }
 
+// Error handling utility
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()" aria-label="Close notification">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 5000);
+}
+
+// Add keyboard event handling
+document.addEventListener('keydown', function(e) {
+    // Close WIP banner with Escape key
+    if (e.key === 'Escape') {
+        const banner = document.getElementById('wipBanner');
+        if (banner && !banner.classList.contains('hidden')) {
+            closeWipBanner();
+        }
+    }
+});
+
 // Active navigation highlighting
 document.addEventListener('DOMContentLoaded', function() {
+    // Add content-loaded class after a short delay to simulate loading
+    setTimeout(() => {
+        document.body.classList.add('content-loaded');
+    }, 500);
+    
     // Check if banner was previously closed
     const bannerClosed = localStorage.getItem('wipBannerClosed');
     const banner = document.getElementById('wipBanner');
@@ -60,26 +99,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get all navigation links
     const navLinks = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('.section, #about');
+    const sections = document.querySelectorAll('.section');
     
     // Function to update active link
     function updateActiveLink() {
-        const scrollPosition = window.scrollY + 100;
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
         const bannerHeight = document.body.classList.contains('has-banner') ? 48 : 0;
-        const adjustedScrollPosition = scrollPosition + bannerHeight;
+        const offset = 100 + bannerHeight;
         
+        // Clear all active states first
+        navLinks.forEach(link => link.classList.remove('active'));
+        
+        // Check if we're at the bottom of the page (for Education section)
+        if (scrollPosition + windowHeight >= documentHeight - 50) {
+            const educationLink = document.querySelector('nav a[href="#education"]');
+            if (educationLink) {
+                educationLink.classList.add('active');
+                return;
+            }
+        }
+        
+        // Check each section
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - offset;
+            const sectionBottom = sectionTop + section.offsetHeight;
             const sectionId = section.getAttribute('id');
             
-            if (adjustedScrollPosition >= sectionTop && adjustedScrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                const activeLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
             }
         });
     }
@@ -98,9 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const bannerHeight = document.body.classList.contains('has-banner') ? 48 : 0;
+                const totalOffset = headerHeight + bannerHeight + 20; // 20px extra padding
+                
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -136,14 +194,15 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('badge')) {
-                    entry.target.style.animation = 'fadeInUp 0.5s ease forwards';
-                } else if (entry.target.classList.contains('project-card')) {
-                    entry.target.style.animation = 'slideIn 0.6s ease forwards';
-                }
+    try {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('badge')) {
+                        entry.target.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else if (entry.target.classList.contains('project-card')) {
+                        entry.target.style.animation = 'slideIn 0.6s ease forwards';
+                    }
             }
         });
     }, observerOptions);
@@ -156,32 +215,44 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.project-card').forEach(card => {
         observer.observe(card);
     });
+    } catch (error) {
+        console.error('IntersectionObserver not supported:', error);
+        // Fallback: show all elements immediately
+        document.querySelectorAll('.badge, .project-card, .stat-card').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+    }
     
     // Animate GitHub stat cards
-    document.querySelectorAll('.stat-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        observer.observe(card);
-    });
-    
-    // Update observer to handle stat cards
-    const enhancedObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('stat-card')) {
+    try {
+        const enhancedObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.classList.contains('stat-card')) {
+                    const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
                     setTimeout(() => {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
                         entry.target.style.transition = 'all 0.6s ease';
-                    }, Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100);
+                    }, index * 100);
+                    enhancedObserver.unobserve(entry.target);
                 }
-            }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            enhancedObserver.observe(card);
         });
-    }, observerOptions);
-    
-    document.querySelectorAll('.stat-card').forEach(card => {
-        enhancedObserver.observe(card);
-    });
+    } catch (error) {
+        console.error('Enhanced observer error:', error);
+        // Fallback: show stat cards immediately
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'none';
+        });
+    }
     
     // Animate star ratings when in view
     const starObserver = new IntersectionObserver(function(entries) {
